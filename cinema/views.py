@@ -18,8 +18,7 @@ class GenresList(APIView):
         return Response(serializer.data)
 
     def post(self, request):
-        genres_data = request.data
-        serializer = GenreSerializer(data=genres_data, many=True)
+        serializer = GenreSerializer(data=request.data)
 
         if serializer.is_valid():
             serializer.save()
