@@ -20,8 +20,6 @@ cinema_hall_detail = CinemaHallViewSet.as_view(actions={
     "delete": "destroy"
 })
 
-router_cinema_halls = DefaultRouter()
-router_cinema_halls.register(r'cinema_halls', CinemaHallViewSet)
 
 router_movies = DefaultRouter()
 router_movies.register(r'movies', MovieViewSet)
@@ -33,7 +31,6 @@ urlpatterns = [
     path("actors/<int:pk>/", ActorDetail.as_view(), name="actor-detail"),
     path("cinema_halls/", cinema_halls_list, name="cinema-halls-list"),
     path("cinema_halls/<int:pk>/", cinema_hall_detail, name="cinema-hall"),
-    path("", include(router_cinema_halls.urls)),
     path("", include(router_movies.urls))
 ]
 
