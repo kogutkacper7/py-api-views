@@ -46,7 +46,6 @@ class MovieSerializer(serializers.Serializer):
         if "actors" in validated_data:
             actors_data = validated_data.pop("actors")
             instance.actors.set(actors_data)
-
         instance.save()
         return instance
 
@@ -69,7 +68,6 @@ class ActorSerializer(serializers.Serializer):
             "last_name",
             instance.last_name
         )
-
         instance.save()
         return instance
 
@@ -83,8 +81,7 @@ class GenreSerializer(serializers.Serializer):
 
     def update(self, instance, validated_data):
         instance.id = validated_data.get("id", instance.id)
-        instance.name = validated_data.get("name", validated_data.name)
-
+        instance.name = validated_data.get("name", instance.name)
         instance.save()
         return instance
 
@@ -100,12 +97,11 @@ class CinemaHallSerializer(serializers.Serializer):
 
     def update(self, instance, validated_data):
         instance.id = validated_data.get("id", instance.id)
-        instance.name = validated_data.get("name", validated_data.name)
-        instance.rows = validated_data.get("rows", validated_data.rows)
+        instance.name = validated_data.get("name", instance.name)
+        instance.rows = validated_data.get("rows", instance.rows)
         instance.seats_in_row = validated_data.get(
             "seats_in_row",
             instance.seats_in_row
         )
-
         instance.save()
         return instance
