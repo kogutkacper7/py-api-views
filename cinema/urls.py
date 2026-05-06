@@ -22,7 +22,7 @@ cinema_hall_detail = CinemaHallViewSet.as_view(actions={
 
 
 router_movies = DefaultRouter()
-router_movies.register(r'movies', MovieViewSet)
+router_movies.register(r"movies", MovieViewSet)
 
 urlpatterns = [
     path("genres/", GenresList.as_view(), name="genres-list"),
