@@ -84,10 +84,10 @@ class ActorDetail(mixins.RetrieveModelMixin,
         return self.retrieve(request, *args, **kwargs)
 
     def put(self, request, *args, **kwargs):
-        self.update(request, *args, **kwargs)
+        return self.update(request, *args, **kwargs)
 
     def delete(self, request, *args, **kwargs):
-        self.delete(request, *args, **kwargs)
+        return self.destroy(request, *args, **kwargs)
 
 
 class CinemaHallViewSet(
