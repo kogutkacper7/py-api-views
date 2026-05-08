@@ -10,7 +10,7 @@ from cinema.serializers import (MovieSerializer,
                                 CinemaHallSerializer)
 
 
-class GenresList(APIView):
+class GenreList(APIView):
 
     def get(self, request):
         genres = Genre.objects.all()
@@ -56,7 +56,7 @@ class GenreDetail(APIView):
         return Response(status=status.HTTP_204_NO_CONTENT)
 
 
-class ActorsList(
+class ActorList(
     mixins.CreateModelMixin,
     mixins.ListModelMixin,
     generics.GenericAPIView
